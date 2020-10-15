@@ -5,6 +5,7 @@ import rdate.RemoteDate;
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 
 public class DateServer {
 
@@ -15,10 +16,10 @@ public class DateServer {
             System.setSecurityManager(new SecurityManager());
         }
         try {
-//            DateServant aRemoteDate = new DateServant();
-//            RemoteDate stub = (RemoteDate) UnicastRemoteObject.exportObject(aRemoteDate, 0);
+           DateServant aRemoteDate = new DateServant();
+           RemoteDate stub = (RemoteDate) UnicastRemoteObject.exportObject(aRemoteDate, 2002);
            Registry registry = LocateRegistry.getRegistry(2001);
-           registry.bind(BIND_NAME, (RemoteDate) new DateServant());
+           registry.rebind(BIND_NAME, stub);
             // Naming.rebind(BIND_NAME, (RemoteDate) new DateServant());
             System.out.println("[RMI-SERVER] START");
             while(true){

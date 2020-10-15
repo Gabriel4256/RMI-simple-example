@@ -8,7 +8,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class DateServant extends UnicastRemoteObject implements RemoteDate {
+public class DateServant implements RemoteDate {
 
 
     protected DateServant() throws RemoteException {
