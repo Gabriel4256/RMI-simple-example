@@ -32,7 +32,9 @@ public class DateClient {
         RemoteDate aRemoteDate = null;
 
         try {
-            aRemoteDate = (RemoteDate) Naming.lookup("rs");
+            Registry registry = LocateRegistry.getRegistry(host);
+            // aRemoteDate = (RemoteDate) Naming.lookup("rs");
+            aRemoteDate = (RemoteDate) registry.lookup("rs");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             while(true) {
                 System.out.println("Choose the option");
