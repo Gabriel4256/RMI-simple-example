@@ -28,11 +28,12 @@ public class DateClient {
 
     public static void main(String[] args) {
         System.setSecurityManager(new RMISecurityManager());
-        String host = (args.length < 1) ? null : args[0];
+        String host = (args.length < 1) ? "localhost" : args[0];
+        int port = (args.length < 2) ? 1099 : Integer.parseInt(args[1]) ;
         RemoteDate aRemoteDate = null;
 
         try {
-            Registry registry = LocateRegistry.getRegistry(host);
+            Registry registry = LocateRegistry.getRegistry(host, port);
             // aRemoteDate = (RemoteDate) Naming.lookup("rs");
             aRemoteDate = (RemoteDate) registry.lookup("rs");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
