@@ -16,6 +16,7 @@ public class DateServer {
             System.setSecurityManager(new SecurityManager());
         }
         try {
+            // System.setProperty("java.rmi.server.hostname","192.168.1.2");
            DateServant aRemoteDate = new DateServant();
            RemoteDate stub = (RemoteDate) UnicastRemoteObject.exportObject(aRemoteDate, 2002);
            Registry registry = LocateRegistry.getRegistry(2001);

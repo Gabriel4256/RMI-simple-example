@@ -11,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.rmi.Naming;
-import java.rmi.RMISecurityManager;
+import java.lang.SecurityManager;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -20,15 +20,10 @@ import java.util.Date;
 import java.util.Locale;
 
 public class DateClient {
-    private static void printOptions(){
-        while(true) {
-
-        }
-    }
 
     public static void main(String[] args) {
-        System.setSecurityManager(new RMISecurityManager());
-        String host = (args.length < 1) ? "localhost" : args[0];
+        System.setSecurityManager(new SecurityManager());
+        String host = (args.length < 1) ? null : args[0];
         int port = (args.length < 2) ? 1099 : Integer.parseInt(args[1]) ;
         RemoteDate aRemoteDate = null;
 

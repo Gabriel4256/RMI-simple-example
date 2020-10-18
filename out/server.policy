@@ -1,3 +1,3 @@
 grant {
-permission java.security.AllPermission "", "";
+    permission java.net.SocketPermission "localhost:2001-2002", "listen,connect";    
 };
