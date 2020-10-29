@@ -7,6 +7,9 @@ import java.rmi.server.UnicastRemoteObject;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.time.format.FormatStyle;
+import java.time.format.DateTimeFormatter;
+import java.time.ZonedDateTime;
 
 public class DateServant implements RemoteDate {
 
@@ -21,7 +24,10 @@ public class DateServant implements RemoteDate {
 
     @Override
     public String regionalDate(Locale language) throws RemoteException {
-        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL, language);
-        return df.format(new Date());
+        ZonedDateTime now = ZonedDateTime.now();
+        return now.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL).withLocale(language));
+        // System.out.println(now.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL).withLocale(Locale.US)));
+        // DateFormat df = DateFormat.getDateInstance(DateFormat.FULL, language);
+        // return df.format(new Date());
     }
 }

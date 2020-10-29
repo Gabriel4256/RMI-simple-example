@@ -15,7 +15,7 @@ echo "Script executed from: ${JAVA_HOME}"
 ${JAVA_HOME}javac -d $DST $PWD/interface/rdate/*.java
 ${JAVA_HOME}javac -classpath $DST/:. -d $DST ${PWD}/server/*.java
 ${JAVA_HOME}javac -classpath $DST/ -d $DST ${PWD}/client/*.java
-cp server.policy $DST
+# cp server.policy $DST
 
 echo "##############################"
 echo "# Compile Done.  "

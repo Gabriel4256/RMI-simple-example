@@ -24,7 +24,7 @@ public class DateClient {
     public static void main(String[] args) {
         System.setSecurityManager(new SecurityManager());
         String host = (args.length < 1) ? null : args[0];
-        int port = (args.length < 2) ? 1099 : Integer.parseInt(args[1]) ;
+        int port = (args.length < 2) ? 1099 : Integer.parseInt(args[1]);
         RemoteDate aRemoteDate = null;
 
         try {
@@ -45,18 +45,18 @@ public class DateClient {
                             break;
                         } else if (input.trim().equals("2")) {
                             while(true) {
-                                System.out.println("Choose the option");
-                                System.out.println("1. get Korea local time");
-                                System.out.println("2. get US local time");
+                                System.out.println("Choose the language");
+                                System.out.println("1. Korean");
+                                System.out.println("2. English");
 
                                 input = reader.readLine();
                                 if (input.trim().equals("1")) {
                                     String koreanTime = aRemoteDate.regionalDate(Locale.KOREA);
-                                    System.out.println("The current date of korea is " + koreanTime);
+                                    System.out.println(koreanTime);
                                     break;
                                 } else if (input.trim().equals("2")) {
                                     String usTime = aRemoteDate.regionalDate(Locale.US);
-                                    System.out.println("The current date of usa is " + usTime);
+                                    System.out.println(usTime);
                                     break;
                                 } else {
                                     System.out.println("Invalid choice, try again");

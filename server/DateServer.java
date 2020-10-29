@@ -17,7 +17,7 @@ public class DateServer {
         }
         try {
             // System.setProperty("java.rmi.server.hostname","192.168.1.2");
-           String port = (args.length < 1) ? 1099 : args[0]; 
+           int port = (args.length < 1) ? 1099 : Integer.parseInt(args[0]); 
            DateServant aRemoteDate = new DateServant();
            RemoteDate stub = (RemoteDate) UnicastRemoteObject.exportObject(aRemoteDate, 1100);
            Registry registry = LocateRegistry.getRegistry(port);

@@ -20,7 +20,7 @@ echo "##############################"
 echo "# Starting rmiregistry  "
 echo "##############################"
 # ${JAVA_HOME}rmiregistry -J-Djava.rmi.server.codebase=file:${PWD} ${PORT} &
-${JAVA_HOME}rmiregistry -J-Djava.class.path=${PWD} ${PORT} &
+${JAVA_HOME}rmiregistry -J-Djava.class.path=${PWD} &
 
 echo "##############################"
 echo "# Starting rmi server"
