@@ -10,7 +10,7 @@ PORT=$2
 # fi
 if [ -z "$2" ]
     then
-        PORT=1109
+        PORT=1099
 fi
 if [ -z "$3" ]
  then

@@ -17,9 +17,10 @@ public class DateServer {
         }
         try {
             // System.setProperty("java.rmi.server.hostname","192.168.1.2");
+           String port = (args.length < 1) ? 1099 : args[0]; 
            DateServant aRemoteDate = new DateServant();
-           RemoteDate stub = (RemoteDate) UnicastRemoteObject.exportObject(aRemoteDate, 2002);
-           Registry registry = LocateRegistry.getRegistry(2001);
+           RemoteDate stub = (RemoteDate) UnicastRemoteObject.exportObject(aRemoteDate, 1100);
+           Registry registry = LocateRegistry.getRegistry(port);
            registry.rebind(BIND_NAME, stub);
             // Naming.rebind(BIND_NAME, (RemoteDate) new DateServant());
             System.out.println("[RMI-SERVER] START");
